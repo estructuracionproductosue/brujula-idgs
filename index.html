@@ -1,67 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brújula Interior IDGs</title>
+
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
+  margin:0;
+  padding:0;
   box-sizing:border-box;
 }
 
 body{
-  margin:0;
-  padding:0;
+  font-family:'Poppins',sans-serif;
+  background:#f8f3ef;
   overflow-x:hidden;
 }
 
 .idg-compass-wrapper{
   position:relative;
   width:100%;
-  max-width:900px;
+  max-width:850px;
   margin:auto;
-  padding:30px 15px 40px;
-  font-family:'Poppins',sans-serif;
+  padding:30px 20px 40px;
   background:linear-gradient(135deg,#f8f3ef,#fff8fb);
   border-radius:24px;
   overflow:hidden;
-  box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
 .idg-background-glow{
   position:absolute;
-  width:300px;
-  height:300px;
+  width:280px;
+  height:280px;
   background:radial-gradient(circle,#f4c0c9 0%, transparent 70%);
   top:-120px;
   right:-100px;
-  opacity:.35;
-  pointer-events:none;
+  opacity:.4;
 }
 
 .idg-header{
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:25px;
   position:relative;
   z-index:2;
-}
-
-.idg-header h1{
-  font-size:38px;
-  line-height:1.1;
-  margin:10px 0 15px;
-  font-weight:700;
-  background:linear-gradient(90deg,#d89fbf,#ef7f69,#f2b15c);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.idg-header p{
-  max-width:650px;
-  margin:auto;
-  font-size:15px;
-  color:#5b4b53;
-  line-height:1.6;
 }
 
 .idg-badge{
@@ -73,23 +61,41 @@ body{
   font-size:11px;
   letter-spacing:1px;
   font-weight:600;
+  margin-bottom:12px;
+}
+
+.idg-header h1{
+  font-size:38px;
+  margin-bottom:12px;
+  font-weight:700;
+  background:linear-gradient(90deg,#d89fbf,#ef7f69,#f2b15c);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.idg-header p{
+  max-width:650px;
+  margin:auto;
+  font-size:15px;
+  line-height:1.7;
+  color:#5b4b53;
 }
 
 .compass-container{
   position:relative;
   width:100%;
-  max-width:420px;
+  max-width:380px;
   aspect-ratio:1/1;
-  margin:20px auto;
+  margin:20px auto 10px;
 }
 
 .ring{
   position:absolute;
-  border-radius:50%;
-  border:2px solid rgba(222,165,177,.22);
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:2px solid rgba(222,165,177,.25);
 }
 
 .ring-1{
@@ -112,24 +118,24 @@ body{
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  width:120px;
-  height:120px;
+  width:110px;
+  height:110px;
   border-radius:50%;
   background:linear-gradient(145deg,#f7d6d8,#fff);
   display:flex;
   align-items:center;
   justify-content:center;
   box-shadow:
-    0 0 25px rgba(232,154,173,.25),
-    inset 0 0 20px rgba(255,255,255,.9);
+    0 0 20px rgba(232,154,173,.25),
+    inset 0 0 15px rgba(255,255,255,.9);
   z-index:5;
   animation:pulse 4s infinite ease-in-out;
 }
 
 .core-glow{
   position:absolute;
-  width:150px;
-  height:150px;
+  width:140px;
+  height:140px;
   border-radius:50%;
   border:1px dashed rgba(226,151,162,.35);
   animation:spin 18s linear infinite;
@@ -142,28 +148,27 @@ body{
 
 .core-text span{
   display:block;
-  font-size:14px;
+  font-size:13px;
   opacity:.7;
 }
 
 .core-text strong{
-  font-size:24px;
+  font-size:22px;
   font-weight:700;
 }
 
 .cardinal{
   position:absolute;
-  width:58px;
-  height:58px;
+  width:52px;
+  height:52px;
   border:none;
   border-radius:50%;
   cursor:pointer;
-  font-size:14px;
-  font-weight:700;
   color:#fff;
+  font-size:12px;
+  font-weight:700;
   transition:.3s ease;
-  z-index:10;
-  box-shadow:0 8px 20px rgba(0,0,0,.12);
+  box-shadow:0 8px 18px rgba(0,0,0,.12);
 }
 
 .cardinal:hover{
@@ -199,32 +204,32 @@ body{
 }
 
 .ne{
-  top:16%;
-  right:16%;
+  top:14%;
+  right:14%;
   background:linear-gradient(135deg,#f3c2be,#e58f89);
 }
 
 .nw{
-  top:16%;
-  left:16%;
+  top:14%;
+  left:14%;
   background:linear-gradient(135deg,#e6d5bf,#d8b9a0);
 }
 
 .se{
-  bottom:16%;
-  right:16%;
+  bottom:14%;
+  right:14%;
   background:linear-gradient(135deg,#f2a05c,#df7f66);
 }
 
 .sw{
-  bottom:16%;
-  left:16%;
+  bottom:14%;
+  left:14%;
   background:linear-gradient(135deg,#d998ba,#bf6e96);
 }
 
 .needle{
   position:absolute;
-  width:6px;
+  width:5px;
   height:42%;
   background:linear-gradient(to bottom,#7f2d4d,#ef9d6c);
   top:50%;
@@ -238,34 +243,31 @@ body{
 .needle::before{
   content:'';
   position:absolute;
-  top:-12px;
+  top:-10px;
   left:50%;
   transform:translateX(-50%);
-  border-left:10px solid transparent;
-  border-right:10px solid transparent;
-  border-bottom:20px solid #7f2d4d;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+  border-bottom:18px solid #7f2d4d;
 }
 
 .message-panel{
-  max-width:700px;
-  margin:15px auto 0;
-  padding:22px;
+  max-width:650px;
+  margin:20px auto 0;
+  padding:20px;
   border-radius:18px;
-  background:rgba(255,255,255,.78);
-  backdrop-filter:blur(10px);
-  box-shadow:0 10px 25px rgba(0,0,0,.06);
+  background:rgba(255,255,255,.82);
   text-align:center;
-  animation:fadeIn .8s ease;
+  box-shadow:0 8px 22px rgba(0,0,0,.06);
 }
 
 .message-panel h2{
-  margin:0 0 10px;
-  font-size:24px;
+  font-size:22px;
   color:#6d4451;
+  margin-bottom:10px;
 }
 
 .message-panel p{
-  margin:0;
   font-size:15px;
   line-height:1.7;
   color:#5d5154;
@@ -288,56 +290,145 @@ body{
   100%{transform:translate(-50%,-50%) rotate(-25deg);}
 }
 
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(10px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
 @media(max-width:600px){
 
   .idg-header h1{
     font-size:30px;
   }
 
-  .idg-header p{
-    font-size:14px;
-  }
-
   .compass-container{
-    max-width:320px;
+    max-width:300px;
   }
 
   .cardinal{
-    width:50px;
-    height:50px;
-    font-size:12px;
+    width:46px;
+    height:46px;
+    font-size:11px;
   }
 
   .compass-core{
-    width:95px;
-    height:95px;
+    width:90px;
+    height:90px;
   }
 
   .core-text strong{
-    font-size:20px;
+    font-size:18px;
   }
 
-  .message-panel h2{
-    font-size:20px;
-  }
-
-  .message-panel p{
-    font-size:14px;
-  }
 }
 
 </style>
+
+</head>
+
+<body>
+
+<div class="idg-compass-wrapper">
+
+<div class="idg-background-glow"></div>
+
+<div class="idg-header">
+
+<div class="idg-badge">
+INNER DEVELOPMENT GOALS
+</div>
+
+<h1>Brújula Interior</h1>
+
+<p>
+Explora cada dirección de tu desarrollo personal y descubre mensajes
+para fortalecer tu consciencia, propósito y transformación.
+</p>
+
+</div>
+
+<div class="compass-container">
+
+<div class="ring ring-1"></div>
+<div class="ring ring-2"></div>
+<div class="ring ring-3"></div>
+
+<div class="compass-core">
+
+<div class="core-glow"></div>
+
+<div class="core-text">
+<span>Tu</span>
+<strong>Centro</strong>
+</div>
+
+</div>
+
+<button class="cardinal north"
+onclick="showMessage('NORTE','Tu brújula interior se fortalece cuando tus decisiones nacen de la claridad y la autenticidad.')">
+N
+</button>
+
+<button class="cardinal south"
+onclick="showMessage('SUR','La transformación ocurre cuando aprendes a escuchar tu interior incluso en medio de la incertidumbre.')">
+S
+</button>
+
+<button class="cardinal east"
+onclick="showMessage('ESTE','Cada nuevo amanecer es una oportunidad para alinear tus acciones con tu propósito.')">
+E
+</button>
+
+<button class="cardinal west"
+onclick="showMessage('OESTE','Mirar hacia adentro te permite reconocer lo que necesitas soltar para avanzar.')">
+O
+</button>
+
+<button class="cardinal ne"
+onclick="showMessage('NORESTE','La consciencia crece cuando conectas visión, empatía y acción.')">
+NE
+</button>
+
+<button class="cardinal nw"
+onclick="showMessage('NOROESTE','El equilibrio interior nace cuando honras tu proceso personal.')">
+NO
+</button>
+
+<button class="cardinal se"
+onclick="showMessage('SURESTE','Tu energía interior guía el camino cuando actúas desde el propósito.')">
+SE
+</button>
+
+<button class="cardinal sw"
+onclick="showMessage('SUROESTE','La resiliencia aparece cuando transformas cada experiencia en aprendizaje.')">
+SO
+</button>
+
+<div class="needle"></div>
+
+</div>
+
+<div class="message-panel" id="messagePanel">
+
+<h2 id="directionTitle">
+Explora la brújula
+</h2>
+
+<p id="directionMessage">
+Haz clic en cualquier punto cardinal para descubrir un mensaje de desarrollo interior.
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function showMessage(direction, message){
+
+const title = document.getElementById("directionTitle");
+const text = document.getElementById("directionMessage");
+
+title.innerHTML = direction;
+text.innerHTML = message;
+
+}
+
 </script>
 
 </body>
